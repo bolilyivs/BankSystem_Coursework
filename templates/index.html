@@ -1,0 +1,93 @@
+{% load bootstrap4 %}
+{% load icons %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{{ title_page }}</title>
+
+
+    <!-- Font Awesome CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous"
+    >
+    
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+</head>
+<body id="main"> 
+    <div class="container-fluid p-0 mb-0">
+        </div>
+        <div class="row">
+            <div class="col-md-12 ">
+                {% block nav %}
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                        <a class="navbar-brand" href="/">{% icon "university" %} Банк</a>
+                        <div class="navbar-collapse" id="navbarSupportedContent">
+                            <ul id="nav" class="navbar-nav mr-auto" >
+
+                                <li class="nav-item"><a class="nav-link" href="{% url 'profit_view' %}">{% icon "star" %} Финансы</a></li>
+                                
+                                <li class="nav-item"><a class="nav-link" href="{% url 'client_view' %}">{% icon "user" %} Клиенты</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% icon "credit-card" %} Кредиты</a>
+                                    <div class="dropdown-menu">
+                                    <a  href="{% url 'credit_view' %}" class="dropdown-item" href="#">Выбрать клиента</a>
+                                    <a  href="{% url 'credit_view_all' %}" class="dropdown-item" href="#">Все кредиты</a>
+                                    <a  href="{% url 'credit_view_need' %}" class="dropdown-item" href="#">На одобрение</a>
+                                    <a  href="{% url 'credit_view_bad' %}" class="dropdown-item" href="#">Запрещённые</a>
+                                    <a  href="{% url 'credit_view_nonrepaid' %}" class="dropdown-item" href="#">Непогашенные</a>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% icon "dollar" %} Вклады</a>
+                                    <div class="dropdown-menu">
+                                    <a  href="{% url 'deposit_view' %}" class="dropdown-item" href="#">Выбрать клиента</a>
+                                    <a  href="{% url 'deposit_view_all' %}" class="dropdown-item" href="#">Все вклады</a>
+                                    <a  href="{% url 'deposit_view_reformed' %}" class="dropdown-item" href="#">На переоформление</a>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% icon "money" %} Платежи</a>
+                                    <div class="dropdown-menu">
+                                    <a  href="{% url 'payment_view' %}" class="dropdown-item" href="#">Выбрать клиента</a>
+                                    <a  href="{% url 'payment_view_all' %}" class="dropdown-item" href="#">Все платежи</a>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                            </ul>
+                        </div>
+                        {% if user.is_authenticated %}
+                            <div class="navbar-brand dropdown">
+                                        <a class="nav-link text-white dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user.username}} {% icon "user" %}</a>
+                                        <div class="dropdown-menu">
+                                        <a  href="{% url 'logout' %}" class="dropdown-item" href="#">Выйти</a>
+                                        </div>
+                            </div>
+                        {% endif %}
+                    </nav>
+                {% endblock %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid bg-secondary text-white border border-dark p-1 ">
+                {% if title_page %}
+                    <h1 class="p-2">&nbsp;&nbsp; {{title_page}}</h1>
+                {% else %}
+                    <h1 class="p-2">&nbsp;&nbsp; Банк</h1>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="row">
+            {% block content%}{% endblock content %}
+        </div>
+    </div>
+</body>
+</html>

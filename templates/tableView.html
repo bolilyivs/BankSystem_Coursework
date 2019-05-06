@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% load render_table from django_tables2 %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% load icons %}
+
+{% block content %}
+<div class="p-4 mb-2 container-fluid">
+                <div class="row">
+                    <div class="col-md-2 mb-0">
+                        <div class="mb-0 p-4 bg-light  border  box rounded">
+                            {% if filter %}           
+                                <form method="get" novalidate class="uniForm">
+                                    <div >
+                                    {% csrf_token %}
+                                    {% crispy filter.form  %}
+                                    <button type="submit" class="btn btn-secondary btn-block"> {% icon "filter" %} Фильтр</button>
+                                    </div>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-10 mb-0 p-0 mr-p-0  px-3">
+                        <div class= 'row-fluid'>
+                            <div class="container-fluid bg-light  border  p-2 ">
+                                <h2 class=" "> <b>{{ title_table }}</b> </h2>
+                            </div>
+                        </div>
+                        {% render_table table 'table_bootstrap4.html' %}                           
+                    </div>
+                </div>
+            </div>
+</div>
+{% endblock content %}

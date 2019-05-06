@@ -1,0 +1,112 @@
+{% extends "index.html" %}
+
+{% load bootstrap4 %}
+{% load icons %}
+
+{% block content %}
+
+<div class="p-4 mb-2 container"> 
+    <div class="mb-0 p-4 bg-light  border  box">
+            <p class="text-center">Добро пожаловать в систему управления банком!</p>  
+            <h2></h2>  
+            <table class="table table-hover  table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>
+                            <a class="nav-link" href="{% url 'profit_view' %}">{% icon "star" %} Финансы</a>
+                        </th>
+                        <th>
+                            <a class="nav-link" href="{% url 'client_view' %}">{% icon "user" %} Клиенты</a>
+                        </th>
+                        <th>
+                            <a class="nav-link" href="{% url 'credit_view_all' %}">{% icon "credit-card" %} Кредиты</a>
+                        </th>
+                        <th>
+                            <a class="nav-link" href="{% url 'deposit_view_all' %}">{% icon "dollar" %} Вклады</a>
+                        </th>
+                        <th>
+                            <a class="nav-link" href="{% url 'payment_view_all' %}">{% icon "money" %} Платежи</a>
+                        </th>
+                    <tr>
+                </thead >
+                <tbody>
+                    <tr>
+                        <td>                    
+                        </td>
+                        <td>                    
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{% url 'credit_view' %}">Выбрать клиента</a>
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{% url 'deposit_view' %}">Выбрать клиента</a>
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{% url 'payment_view' %}">Выбрать клиента</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>                       
+                        </td>
+                        <td>                      
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{% url 'credit_view_all' %}">Все кредиты</a>
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{% url 'deposit_view_all' %}">Все вклады</a>
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{% url 'payment_view_all' %}">Все платежи</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>                   
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{% url 'credit_view_need' %}">На одобрение</a>
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{% url 'deposit_view_reformed' %}">На переоформление</a>
+                        </td>
+                        <td>                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>                           
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{% url 'credit_view_bad' %}">Запрещённые</a>
+                        </td>
+                        <td>
+                        </td>
+                        <td>                            
+                        </td>
+                    <tr>
+                    </tr>
+                        <td>                 
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <a class="nav-link" href="{% url 'credit_view_nonrepaid' %}">Непогашенные</a>
+                        </td>
+                        <td>
+                        </td>
+                        <td>                            
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+    </div>   
+</div>
+
+
+
+{% endblock %}
