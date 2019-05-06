@@ -1,0 +1,10 @@
+
+Django==2.1.7
+django-bootstrap3==11.0.0
+django-bootstrap4==0.0.8
+django-crispy-forms==1.7.2
+django-extensions==2.1.6
+django-filter==2.1.0
+django-icons==0.2.1
+django-jfu-pyforms==2.0.9.1
+django-tables2==2.0.6
