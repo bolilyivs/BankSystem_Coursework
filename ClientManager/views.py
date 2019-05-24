@@ -7,6 +7,7 @@ from .tables import *
 from .forms import *
 from Structure.models import * 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .filters import *
 
 #############################
 # Client Table
@@ -19,8 +20,11 @@ class ClientTableView(LoginRequiredMixin, tables.SingleTableMixin, FilterView):
     template_name = "table.html"
     paginate_by = 20
 
+    filterset_class = ClientFilter    
+
     login_url = '/accounts/login/'
     redirect_field_name = 'redirect_to'
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -3,18 +3,17 @@ from django.forms import *
 from Structure.models import * 
 
 
-class PaymentFilter(django_filters.FilterSet):
+class ClientFilter(django_filters.FilterSet):
     class Meta:
-        model = Payment
+        model = Client
         fields = {
-            'client__last_name': ['exact'],
-            'client__first_name': ['exact'],
-            'client__second_name': ['exact'],
-            'department': ['exact'],
-            'employee': ['exact'],
-            'status': ['exact'],
-            'money': ['lt', 'gt'],  
-            'reg_date': ['lt', 'gt'],
+            'first_name': ['exact'],
+            'second_name': ['exact'],
+            'last_name': ['exact'],
+            'conviction': ['exact'],
+            'work': ['exact'],
+            'house': ['exact'],
+            'profit': ['exact'],
         }
 
         filter_overrides = {

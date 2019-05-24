@@ -14,3 +14,5 @@ admin.site.register(DepositType)
 
 admin.site.register(Department)
 admin.site.register(Status)
+
+admin.site.register(Log)

@@ -8,6 +8,9 @@ class DepositFilter(django_filters.FilterSet):
     class Meta:
         model = Deposit
         fields = {
+            'client__last_name': ['exact'],
+            'client__first_name': ['exact'],
+            'client__second_name': ['exact'],
             'department': ['exact'],
             'employee': ['exact'],
             'deposit_type': ['exact'],

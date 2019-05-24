@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django import forms
 
+
 class ProfitFilter(forms.Form):
     reg_date__gt = forms.DateField(label = "Дата с:", required=False, widget=forms.DateInput(attrs={'type':'date'}))
     reg_date__lt = forms.DateField(label = "до:", required=False, widget=forms.DateInput(attrs={'type':'date'}))

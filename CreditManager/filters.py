@@ -7,6 +7,9 @@ class CreditFilter(django_filters.FilterSet):
     class Meta:
         model = Credit
         fields = {
+            'client__last_name': ['exact'],
+            'client__first_name': ['exact'],
+            'client__second_name': ['exact'],
             'department': ['exact'],
             'employee': ['exact'],
             'credit_type': ['exact'],
