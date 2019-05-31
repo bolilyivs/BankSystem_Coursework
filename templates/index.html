@@ -61,6 +61,15 @@
                                 </li>
 
                                 <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{% icon "money" %} Отчёты</a>
+                                    <div class="dropdown-menu">
+                                    <a  href="{% url 'credit_report' %}" class="dropdown-item" href="#">Кредиты</a>
+                                    <a  href="{% url 'deposit_report' %}" class="dropdown-item" href="#">Вклады</a>
+                                    <a  href="{% url 'payment_report' %}" class="dropdown-item" href="#">Платежи</a>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item dropdown">
                             </ul>
                         </div>
                         {% if user.is_authenticated %}

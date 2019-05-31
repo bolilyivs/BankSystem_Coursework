@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Arial, "Arial Font";
+    src: url(arial.ttf);
+  }
+
+body {
+font-family: Arial;
+}

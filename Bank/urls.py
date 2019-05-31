@@ -4,6 +4,7 @@ from ClientManager.views import *
 from CreditManager.views import *
 from DepositManager.views import *
 from PaymentManager.views import *
+from Report.views import *
 from Structure.views import *
 from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
@@ -56,5 +57,9 @@ urlpatterns = [
     
     path('accounts/login/', auth_views.LoginView.as_view(redirect_field_name="/"), {'next_page': '/'}, name='login'),
     path('accounts/logout/', auth_views.LogoutView.as_view(redirect_field_name="/"), name='logout' ),
+
+    path('report/credit', CreditFormReportView, name="credit_report"),
+    path('report/deposit', DepositFormReportView, name="deposit_report"),
+    path('report/payment', PaymentFormReportView, name="payment_report"),
 ]
 APPEND_SLASH = True

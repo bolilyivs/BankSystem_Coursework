@@ -1,0 +1,39 @@
+{% load bootstrap4 %}
+{% load icons %}
+{% load render_table from django_tables2 %}
+{% load bootstrap4 %}
+{% load icons %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{{ title_table }}</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'pdf.css' %}">
+ 
+
+    <!-- Font Awesome CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous"
+    >
+</head>
+<body id="main"> 
+    <div class="p-4 mb-2 container-fluid">
+        <div class="row">
+            <div class="col-md-10 mb-0 p-0 mr-p-0  px-3">
+                <div class= 'row-fluid'>
+                    <div class="container-fluid bg-light  border  p-2 ">
+                        <h2 class=" "> <b>{{ title_table }}</b> </h2>
+                    </div>
+                </div>
+                {% render_table table 'table_bootstrap4.html'%}                           
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
