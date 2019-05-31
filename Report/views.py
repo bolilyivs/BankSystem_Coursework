@@ -7,7 +7,6 @@ from PaymentManager.tables import PaymentTable
 
 from django.http import HttpResponse
 from django_xhtml2pdf.utils import generate_pdf, pdf_decorator
-from .utils import render_pdf_view
 from django.db.models import Q
 
 # Create your views here.
